@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BINGO FAMILIAR</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="container mt-3">
+            <div id="bolaDestacada" class="bola-destacada"></div>
+        </div>
+        <div class="jumbotron jogo-header">
+            <h1 class="display-5 centro">BINGO DA FAMÍLIA CHICO RASGADO</h1>
+            <h2 id="vencedor"></h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="centro">BINGO JOGADORES - CARTELAS</h1>
+                <div class="centro">
+                    <button id="botaoGerarCartela" class="btn btn-primary" onclick="gerarCartelaHTML()">Criar
+                        cartela</button>
+                    <button id="reset" class="btn btn-secondary ms-2" onclick="reiniciarJogo()">Reiniciar Jogo</button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalJogador" tabindex="-1" aria-labelledby="tituloModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content text-center">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="tituloModal">Digite o nome do jogador:</h5>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="inputNomeJogador"
+                                    placeholder="Nome do jogador" />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="confirmarNomeJogador()">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bingo" class="row border border-primary border-4 mt-3"></div>
+            </div>
+
+            <div class="col-md-4">
+                <h1 class="centro">Área do Jogo</h1>
+                <div class="centro mb-2">
+                    <label for="quantidadeSorteios">Qtd. sorteios automáticos:</label>
+                    <input type="number" id="quantidadeSorteios" min="1" max="75" value="10" class="ms-2"
+                        style="width: 60px;" />
+                </div>
+                <div class="centro mb-3">
+                    <button class="btn btn-danger me-2" onclick="iniciarJogo()">Iniciar Jogo</button>
+                    <button class="btn btn-warning me-2" onclick="sortearNumero()">Sortear manualmente</button>
+                    <button class="btn btn-info me-2" onclick="iniciarSorteioAutomatico()">Iniciar automático</button>
+                    <button class="btn btn-dark" onclick="pararSorteio()">Parar sorteio</button>
+                </div>
+                <div class="container">
+                    <div class="row" id="sorteados"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
